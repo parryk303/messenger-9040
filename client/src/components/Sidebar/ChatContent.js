@@ -21,16 +21,16 @@ const useStyles = makeStyles((theme) => ({
   notification: {
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 10,
-    height: 15,
-    width: 15,
-    marginRight: 10,
-    backgroundColor: "0969DA",
+    borderRadius: 18,
+    height: "fit-content",
+    width: "fit-content",
+    margin: "15px 15px 0px 15px",
+    backgroundColor: "#0086FE",
     color: "white",
-    fontSize: 10,
+    fontSize: 8,
     letterSpacing: -0.5,
-    fontWeight: "bold",
-    display: "flex",
+    fontWeight: 900,
+    padding: "3px 8px 3px 8px",
   }
 }));
 
@@ -38,12 +38,7 @@ const ChatContent = (props) => {
   const classes = useStyles();
 
   const { conversation } = props;
-  const { latestMessageText, otherUser, messages } = conversation;
-
-  const unSeenMessages = messages.filter(convo => {
-    return !convo.seen;
-  })
-
+  const { latestMessageText, otherUser } = conversation;
   return (
     <Box className={classes.root}>
       <Box>
@@ -54,9 +49,9 @@ const ChatContent = (props) => {
           {latestMessageText}
         </Typography>
       </Box>
-      {unSeenMessages.length &&
-        <Badge className={classes.notification} >
-          {unSeenMessages.length}
+          {conversation.unSeenMessages &&
+          <Badge className={classes.notification} >
+          {conversation.unSeenMessages}
         </Badge>}
     </Box>
   );

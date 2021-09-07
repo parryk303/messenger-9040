@@ -80,3 +80,7 @@ export const addNewConvoToStore = (state, recipientId, message) => {
     }
   });
 };
+
+export const setCount = (state, conversationId, count) => {
+  return state;
+}
