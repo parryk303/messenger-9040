@@ -92,7 +92,6 @@ const sendMessage = (data, body) => {
     recipientId: body.recipientId,
     sender: data.sender,
   });
-  console.log(data.message);
 };
 
 // message format to send: {recipientId, text, conversationId}
@@ -107,7 +106,7 @@ export const postMessage = (body) => async (dispatch) => {
       dispatch(setNewMessage(data.message));
     }
 
-    await sendMessage(data, body);
+    sendMessage(data, body);
   } catch (error) {
     console.error(error);
   }
