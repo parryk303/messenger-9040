@@ -5,6 +5,7 @@ import {
   addConversation,
   setNewMessage,
   setSearchedUsers,
+  setUnseenCount,
 } from "../conversations";
 import { gotUser, setFetchingStatus } from "../user";
 
@@ -92,6 +93,23 @@ const sendMessage = (data, body) => {
     recipientId: body.recipientId,
     sender: data.sender,
   });
+};
+
+export const setUnseen = (conversation) => async dispatch => {
+  try {
+    await axios.put("/api/messages/update", { conversation });
+    dispatch(setUnseenCount(conversation.id));
+  } catch(error) {
+    console.error(error);
+  }
+};
+
+export const updateMessage = async (messageId) => {
+  try {
+    await axios.put(`/api/messages/update/${messageId}`, { messageId });
+  } catch(error) {
+    console.error(error);
+  }
 };
 
 // message format to send: {recipientId, text, conversationId}

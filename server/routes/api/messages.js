@@ -45,27 +45,51 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id/unSeen", async (req, res, next) => {
-  const conversationId = req.params.id;
-  const { count } = await Message.findAndCountAll({
-    where: {
-      senderId: {
-        [Op.not]: req.user.id
-      },
-      seen: false,
-    }
-  });
-  res.json(count);
-});
+// router.get("/:id/unSeen", async (req, res, next) => {
+//   const conversationId = req.params.id;
+//   const { count } = await Message.findAndCountAll({
+//     where: {
+//       senderId: {
+//         [Op.not]: req.user.id
+//       },
+//       seen: false,
+//     }
+//   });
+//   res.json(count);
+// });
 
-router.put("/update", async (req, res) => {
+router.put("/update", async (req, res, next) => {
   try {
     if (!req.user) {
       return res.sendStatus(401);
     }
-    const { messages } = req.body;
+    const { conversation } = req.body;
+    await Message.update({
+      seen: true,
+    }, {
+      where: {
+        conversationId: conversationId,
+        seen: false,
+        senderId: {
+          [Op.not]: req.user.id,
+        },
+      },
+      fields: ["seen"],
+      returning: true,
+    });
+    res.json("successful");
   } catch (error) {
     next(error);
+  }
+});
+
+router.put("/update/:messsageId", async (req, res, next) => {
+  try {
+    const { messsageId } = req.params;
+    await Message.update({ read: true }, { where: { id: messsageId }});
+    res.json("successful");
+  } catch(error) {
+    next(error)
   }
 });
 
