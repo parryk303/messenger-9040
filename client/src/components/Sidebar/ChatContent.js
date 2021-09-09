@@ -49,10 +49,10 @@ const ChatContent = (props) => {
           {latestMessageText}
         </Typography>
       </Box>
-          {conversation.unSeenMessages &&
-          <Badge className={classes.notification} >
-          {conversation.unSeenMessages}
-        </Badge>}
+        {conversation.unSeenMessages !== 0 && conversation.unSeenMessages &&
+        <Badge className={classes.notification} >
+        {conversation.unSeenMessages}
+      </Badge>}
     </Box>
   );
 };

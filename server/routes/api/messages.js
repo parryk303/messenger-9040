@@ -45,19 +45,6 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-// router.get("/:id/unSeen", async (req, res, next) => {
-//   const conversationId = req.params.id;
-//   const { count } = await Message.findAndCountAll({
-//     where: {
-//       senderId: {
-//         [Op.not]: req.user.id
-//       },
-//       seen: false,
-//     }
-//   });
-//   res.json(count);
-// });
-
 router.put("/update", async (req, res, next) => {
   try {
     if (!req.user) {
@@ -68,7 +55,7 @@ router.put("/update", async (req, res, next) => {
       seen: true,
     }, {
       where: {
-        conversationId: conversationId,
+        conversationId: conversation.id,
         seen: false,
         senderId: {
           [Op.not]: req.user.id,
