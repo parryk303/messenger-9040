@@ -27,11 +27,10 @@ const Chat = (props) => {
   const dispatch = useDispatch();
 
   const handleClick = async (conversation) => {
-    console.log(conversation);
     if (conversation.unSeenMessages) {
       await dispatch(setUnseen(conversation));
     }
-   dispatch(setActiveChat(conversation.id, conversation.otherUser.username));
+   dispatch(setActiveChat(conversation.otherUser.username, conversation.id));
   };
 
   return (

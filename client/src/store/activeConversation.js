@@ -10,7 +10,7 @@ export const setActiveChat = (username, conversationId) => {
   };
 };
 
-const initialState = { id: null, username: "" };
+const initialState = { username: "", id: null  };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
