@@ -23,4 +23,11 @@ export const theme = createTheme({
     secondary: { main: "#B0B0B0" },
     secondaryTrans: { main: "rgb(58, 141, 255, 0.8)"},
   },
+  breakpoints: {
+    xs: 0,
+    sm: 600,
+    md: 960,
+    lg: 1280,
+    xl: 1920,
+  },
 });

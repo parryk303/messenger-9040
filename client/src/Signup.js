@@ -28,8 +28,17 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
-    padding: "10px 40px 0px 10px",
-    margin: "2.5% 0.5% 11% 0%",
+    padding: "10px 40px 0px 15px",
+    [theme.breakpoints.up("xs")]: {
+      margin: "5% 0% 11% 5.5%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      margin: "7% 4% 7% 3%",
+
+    },
+    [theme.breakpoints.up("md")]: {
+      margin: "2.5% 0.5% 4% 0%"
+    },
   },
   suggestionLine: {
     fontSize: 18,
@@ -47,11 +56,29 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "30%",
     letterSpacing: -0.8,
     color: "white",
+    [theme.breakpoints.down("xs")]: {
+      margin: "10% 0% 3% 20%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      margin: "10% 5% 7% 30%",
+    },
+    [theme.breakpoints.up("md")]: {
+      margin: "10% 5% 0% 36%",
+    },
   },
   formBox: {
     display: "flex",
     flexDirection: "column",
     marginLeft: "20%",
+    [theme.breakpoints.up("xs")]: {
+      margin: "0% 0% 0% 10%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      margin: "0% 5% 7% 23%",
+    },
+    [theme.breakpoints.up("md")]: {
+      margin: "0% 5% 0% 23%",
+    },
   },
   formContainer: {
     height: 600,
@@ -70,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   form: {
-    width: "70%",
+    width: "90%",
   },
 }));
 
