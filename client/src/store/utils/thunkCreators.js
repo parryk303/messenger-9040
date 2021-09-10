@@ -95,18 +95,11 @@ const sendMessage = (data, body) => {
   });
 };
 
-export const setUnseen = (conversation) => async dispatch => {
-  try {
-    await axios.put("/api/messages/update", { conversation });
-    dispatch(setUnseenCount(conversation.id));
-  } catch(error) {
-    console.error(error);
-  }
-};
 
-export const updateMessage = async (messageId) => {
+export const updateMessage = (conversation) => async dispatch => {
   try {
-    await axios.put(`/api/messages/update/${messageId}`, { messageId });
+    await axios.put("/api/messages/seen", { conversation });
+    dispatch(setUnseenCount(conversation.id));
   } catch(error) {
     console.error(error);
   }

@@ -46,6 +46,7 @@ const ActiveChat = () => {
           />
           <Box className={classes.chatContainer}>
             <Messages
+              messageCount={conversation.messages.length - 1}
               messages={conversation.messages}
               otherUser={conversation.otherUser}
               userId={user.id}
