@@ -45,7 +45,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.put("/update", async (req, res, next) => {
+router.put("/seen", async (req, res, next) => {
   try {
     if (!req.user) {
       return res.sendStatus(401);
@@ -64,19 +64,9 @@ router.put("/update", async (req, res, next) => {
       fields: ["seen"],
       returning: true,
     });
-    res.json("successful");
+    res.sendStatus(201);
   } catch (error) {
     next(error);
-  }
-});
-
-router.put("/update/:messsageId", async (req, res, next) => {
-  try {
-    const { messsageId } = req.params;
-    await Message.update({ read: true }, { where: { id: messsageId }});
-    res.json("successful");
-  } catch(error) {
-    next(error)
   }
 });
 
