@@ -19,6 +19,8 @@ export const theme = createTheme({
   },
   palette: {
     primary: { main: "#3A8DFF" },
-    secondary: { main: "#B0B0B0" }
-  }
+    primaryTrans: { main: "rgb(58, 141, 255, 0.8)" },
+    secondary: { main: "#B0B0B0" },
+    secondaryTrans: { main: "rgb(58, 141, 255, 0.8)"},
+  },
 });
