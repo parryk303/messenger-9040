@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     height: "100vh",
     color: "white",
+    [theme.breakpoints.down("sm")]: {
+      width: "20%",
+      height: "20%",
+    },
   },
 }));
 
@@ -32,11 +36,11 @@ const LandingPage = (props) => {
           md={5} >
           <Banner />
         </Grid>
-        </Hidden>
-        <Grid container item xs={12} md={7}>
-          {props.children}
-        </Grid>
-    </Grid>
+      </Hidden>
+      <Grid container item xs={12} md={7}>
+        {props.children}
+      </Grid>
+  </Grid>
   );
 };
 

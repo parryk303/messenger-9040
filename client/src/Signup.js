@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.up("sm")]: {
       margin: "7% 4% 7% 3%",
-
     },
     [theme.breakpoints.up("md")]: {
       margin: "2.5% 0.5% 4% 0%"
@@ -56,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "30%",
     letterSpacing: -0.8,
     color: "white",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.up("xs")]: {
       margin: "10% 0% 3% 20%",
     },
     [theme.breakpoints.up("sm")]: {
@@ -74,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
       margin: "0% 0% 0% 10%",
     },
     [theme.breakpoints.up("sm")]: {
-      margin: "0% 5% 7% 23%",
+      margin: "0% 15% 7% 23%",
     },
     [theme.breakpoints.up("md")]: {
       margin: "0% 5% 0% 23%",
