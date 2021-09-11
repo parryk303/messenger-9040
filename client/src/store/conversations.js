@@ -5,7 +5,6 @@ import {
   removeOfflineUserFromStore,
   addMessageToStore,
   setCount,
-  // incrementCount,
 } from "./utils/reducerFunctions";
 
 // ACTIONS
@@ -18,7 +17,6 @@ const SET_SEARCHED_USERS = "SET_SEARCHED_USERS";
 const CLEAR_SEARCHED_USERS = "CLEAR_SEARCHED_USERS";
 const ADD_CONVERSATION = "ADD_CONVERSATION";
 const SET_COUNT = "SET_COUNT";
-// const INCREMENT_COUNT = "INCREMENT_COUNT";
 
 // ACTION CREATORS
 
@@ -93,8 +91,6 @@ const reducer = (state = [], action) => {
       return action.conversations;
     case SET_COUNT:
       return setCount(state, action.conversationId);
-    // case INCREMENT_COUNT:
-    //   return incrementCount(state, action.conversationId);
     case SET_MESSAGE:
       return addMessageToStore(state, action.payload);
     case ADD_ONLINE_USER: {
