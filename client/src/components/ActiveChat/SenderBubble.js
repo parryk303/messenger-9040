@@ -26,9 +26,9 @@ const useStyles = makeStyles(() => ({
     borderRadius: "10px 10px 0 10px"
   },
   avatar: props => {
-    const condition = new Date(props.lastTime) < new Date(props.firstTime);
+    const condition = props.newestMessage === props.id;
     return {
-      visibility: condition && "hidden",
+      visibility: !condition && "hidden",
       height: 20,
       width: 20,
       marginRight: 11,
@@ -39,14 +39,14 @@ const useStyles = makeStyles(() => ({
 
 const SenderBubble = (props) => {
   const classes = useStyles();
-  const { time, text, otherUser, lastTime, firstTime } = props;
+  const { time, text, otherUser } = props;
   return (
     <Box className={classes.root}>
       <Typography className={classes.date}>{time}</Typography>
       <Box className={classes.bubble}>
         <Typography className={classes.text}>{text}</Typography>
       </Box>
-      {lastTime === firstTime &&
+      {props.newestMessage === props.id &&
         <Box>
           <Avatar alt={otherUser.username} src={otherUser.photoUrl} text={text} className={classes.avatar}></Avatar>
         </Box>
