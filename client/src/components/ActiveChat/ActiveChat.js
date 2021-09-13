@@ -38,7 +38,7 @@ const ActiveChat = () => {
 
   let newestMessage;
 
-  if (conversation) {
+  if (activeChat.twoWayConvo) {
     const length = conversation.messages.length -1;
 
     let i = length;
