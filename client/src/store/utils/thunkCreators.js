@@ -5,6 +5,7 @@ import {
   addConversation,
   setNewMessage,
   setSearchedUsers,
+  setUnseenCount,
 } from "../conversations";
 import { gotUser, setFetchingStatus } from "../user";
 
@@ -92,6 +93,16 @@ const sendMessage = (data, body) => {
     recipientId: body.recipientId,
     sender: data.sender,
   });
+};
+
+
+export const updateMessage = (conversation) => async dispatch => {
+  try {
+    await axios.put("/api/messages/seen", { conversation });
+    dispatch(setUnseenCount(conversation.id));
+  } catch(error) {
+    console.error(error);
+  }
 };
 
 // message format to send: {recipientId, text, conversationId}
