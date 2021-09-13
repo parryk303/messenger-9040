@@ -56,9 +56,11 @@ const ChatContent = (props) => {
           {latestMessageText}
         </Typography>
       </Box>
-      <Badge className={classes.notification} >
-        {conversation.unSeenMessages}
-      </Badge>
+      {conversation.messages.length > 0 &&
+        <Badge className={classes.notification} >
+          {conversation.unSeenMessages}
+        </Badge>
+      }
     </Box>
   );
 };

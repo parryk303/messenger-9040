@@ -32,10 +32,30 @@ const Sidebar = (props) => {
       {conversations.length && conversations
         .filter((conversation) => conversation.otherUser.username.includes(searchTerm))
         .map((conversation) => {
-          return <Chat conversation={conversation} key={conversation.otherUser.username} />;
+          let otherResponse, userResponse, twoWayConvo = false;
+          const length = conversation.messages.length - 1;
+          let i = 0;
+          while (i <= length) {
+            conversation.messages[i].senderId === conversation.otherUser.id ? otherResponse = true
+            : userResponse = true;
+            if (otherResponse && userResponse) {
+              twoWayConvo = true;
+            }
+            i++;
+          }
+          return <Chat conversation={conversation} key={conversation.otherUser.username} twoWayConvo={twoWayConvo}  />;
         })}
     </Box>
   );
 };
 
 export default (Sidebar);
+
+// while (!twoWayConvo || i <= length) {
+//   conversation.messages[i].senderId === conversation.otherUser.id ? otherResponse = true
+//     : userResponse = true
+//   if (otherResponse && userResponse) {
+//     twoWayConvo = true;
+//   }
+//   i++;
+// }

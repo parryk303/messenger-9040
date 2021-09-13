@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Chat = (props) => {
   const classes = useStyles();
-  const { conversation } = props;
+  const { conversation, twoWayConvo } = props;
   const { otherUser } = conversation;
   const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ const Chat = (props) => {
     if (conversation.unSeenMessages) {
       await dispatch(updateMessage(conversation));
     }
-   dispatch(setActiveChat(conversation.otherUser.username, conversation.id));
+   dispatch(setActiveChat(conversation.otherUser.username, conversation.id, twoWayConvo));
   };
 
   return (
@@ -41,7 +41,7 @@ const Chat = (props) => {
         online={otherUser.online}
         sidebar={true}
       />
-      <ChatContent conversation={conversation} />
+      <ChatContent conversation={conversation} twoWayConvo={twoWayConvo} />
     </Box>
   );
 };

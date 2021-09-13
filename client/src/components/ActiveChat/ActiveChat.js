@@ -36,6 +36,20 @@ const ActiveChat = () => {
     conversation = null;
   }
 
+  let newestMessage;
+
+  if (activeChat.twoWayConvo) {
+    const length = conversation.messages.length -1;
+
+    let i = length;
+    while (!newestMessage) {
+      if (user.id === conversation.messages[i].senderId){
+        newestMessage = conversation.messages[i].id;
+      }
+      i--;
+    }
+  }
+
   return (
     <Box className={classes.root}>
       {conversation && (
@@ -46,7 +60,7 @@ const ActiveChat = () => {
           />
           <Box className={classes.chatContainer}>
             <Messages
-              messageCount={conversation.messages.length - 1}
+              newestMessage={newestMessage}
               messages={conversation.messages}
               otherUser={conversation.otherUser}
               userId={user.id}

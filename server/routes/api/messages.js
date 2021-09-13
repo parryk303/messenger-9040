@@ -64,7 +64,7 @@ router.put("/seen", async (req, res, next) => {
       fields: ["seen"],
       returning: true,
     });
-    res.sendStatus(201);
+    res.sendStatus(204);
   } catch (error) {
     next(error);
   }
