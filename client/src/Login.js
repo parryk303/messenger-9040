@@ -13,8 +13,9 @@ import {
 } from "@material-ui/core";
 import { login } from "./store/utils/thunkCreators";
 import LandingPage from "./LandingPage";
+import { theme } from "./themes/theme";
 
-const useStyles = makeStyles((theme) => ({
+const loginSignupStyles = {
   navButton: {
     textAlign: "center",
     variant: "contained",
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
       margin: "5% 0% 11% 5.5%",
     },
     [theme.breakpoints.up("sm")]: {
-      margin: "7% 4% 0% 3%",
+      margin: "7% 4% 7% 3%",
     },
     [theme.breakpoints.up("md")]: {
       margin: "2.5% 0.5% 4% 0%"
@@ -58,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
       margin: "10% 0% 3% 20%",
     },
     [theme.breakpoints.up("sm")]: {
-      margin: "10% 5% 7% 30%",
+      margin: "10% 5% 7% 23%",
     },
     [theme.breakpoints.up("md")]: {
       margin: "10% 5% 0% 36%",
@@ -97,7 +98,9 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: "90%",
   },
-}));
+};
+
+const useStyles = makeStyles((theme) => (loginSignupStyles));
 
 const Login = (props) => {
   const classes = useStyles();
