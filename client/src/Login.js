@@ -1,15 +1,11 @@
 import React from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
-import {
-  Grid,
-  Box,
-  Typography,
-  Button,
-  FormControl,
-  TextField,
-} from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { login } from "./store/utils/thunkCreators";
+import LandingPage from "./LandingPage";
+import ComboNav from "./ComboNav";
+import ComboForm from "./ComboForm";
 
 const Login = (props) => {
   const history = useHistory();
@@ -28,41 +24,19 @@ const Login = (props) => {
   }
 
   return (
-    <Grid container justifyContent="center">
-      <Box>
-        <Grid container item>
-          <Typography>Need to register?</Typography>
-          <Button onClick={() => history.push("/register")}>Register</Button>
-        </Grid>
-        <form onSubmit={handleLogin}>
-          <Grid>
-            <Grid>
-              <FormControl margin="normal" required>
-                <TextField
-                  aria-label="username"
-                  label="Username"
-                  name="username"
-                  type="text"
-                />
-              </FormControl>
-            </Grid>
-            <FormControl margin="normal" required>
-              <TextField
-                label="password"
-                aria-label="password"
-                type="password"
-                name="password"
-              />
-            </FormControl>
-            <Grid>
-              <Button type="submit" variant="contained" size="large">
-                Login
-              </Button>
-            </Grid>
-          </Grid>
-        </form>
-      </Box>
-    </Grid>
+    <LandingPage>
+      <Grid item xs={12}>
+        <ComboNav
+          history={history}
+          path={"register"}
+          text={"Don't have an account?"}
+          button={"Create account"} />
+        <ComboForm
+          signUp={false}
+          handleLogin={handleLogin}
+          loginHeader={"Welcome Back!"} />
+      </Grid>
+    </LandingPage>
   );
 };
 
