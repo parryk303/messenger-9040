@@ -5,9 +5,10 @@ import landing from "./images/landing.png";
 
 const useStyles = makeStyles((theme) => ({
   banner: {
+    fontFamily: "Open Sans",
     backgroundImage: `linear-gradient(to bottom,
       ${theme.palette.primaryTrans.main},
-      ${theme.palette.secondaryTrans.main}),
+      rgb(134, 185, 255, 0.85)),
       url(${landing})`,
     backgroundSize: "cover",
     height: "100vh",

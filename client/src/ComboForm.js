@@ -12,7 +12,8 @@ import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   formButton: {
-    backgroundColor: "#0086FE",
+    fontFamily: "Montserrat",
+    backgroundColor: "#3A8DFF",
     height: 70,
     width: 200,
     fontSize: 20,
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   formBox: {
+    fontFamily: "Open Sans",
     display: "flex",
     flexDirection: "column",
     marginLeft: "20%",
@@ -46,22 +48,23 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   formContainer: {
+    fontFamily: "Open Sans",
     height: 600,
     flexDirection: "row",
     justifyContent: "center",
   },
   formHeader: {
+    fontFamily: "Open Sans",
     fontWeight: 650,
     paddingBottom: 40,
   },
   formTextFeild: {
+    fontFamily: "Open Sans",
     width: "100%",
     paddingTop: "10%",
-    "&:hover": {
-      color: "#0086FE",
-    }
   },
   form: {
+    fontFamily: "Open Sans",
     width: "90%",
   },
 }));

@@ -3,14 +3,17 @@ import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   navButton: {
+    fontFamily: "Montserrat",
+    color: "#3A8DFF",
     textAlign: "center",
     variant: "contained",
     background: "white",
-    height: 65,
-    width: 160,
+    height: 70,
+    width: 205,
     fontWeight: 900,
   },
   navBox: {
+    fontFamily: "Open Sans",
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
@@ -26,10 +29,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   suggestionLine: {
+    fontFamily: "Open Sans",
     fontSize: 18,
     fontWeight: 550,
     paddingRight: 40,
     letterSpacing: -0.5,
+    [theme.breakpoints.down("xs")]: {
+      paddingRight: 0,
+    },
   },
 }));
 
