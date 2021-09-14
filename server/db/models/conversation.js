@@ -4,22 +4,21 @@ const Message = require("./message");
 
 const Conversation = db.define("conversation", {});
 
-// find conversation given two user Ids
+// find conversation given multiple user Ids
 
-Conversation.findConversation = async function (user1Id, user2Id) {
-  const conversation = await Conversation.findOne({
-    where: {
-      user1Id: {
-        [Op.or]: [user1Id, user2Id]
-      },
-      user2Id: {
-        [Op.or]: [user1Id, user2Id]
-      }
-    }
-  });
+  Conversation.findConversation = async function (users) {
+    const userIds = {};
+      value = users.map((user, i=1) => {
+        return `user${i}Id`;
+      }).map(key => {
+        return where[value] = { [Op.or]: [...users] }
+      });
+      const conversation = await Conversation.findOne({
+        where: userIds
+      });
 
-  // return conversation or null if it doesn't exist
-  return conversation;
+    // return conversation or null if it doesn't exist
+    return conversation;
 };
 
 module.exports = Conversation;
