@@ -8,12 +8,11 @@ const Recipient = require("./recipient");
 
 User.hasMany(UserConversation);
 User.hasMany(Message);
+Conversation.belongsToMany(User, { through: UserConversation });
+User.belongsToMany(Conversation, { through: UserConversation });
 User.hasMany(Recipient);
-UserConversation.belongsTo(User);
 Message.belongsTo(User);
 Recipient.belongsTo(User);
-Conversation.hasMany(UserConversation);
-UserConversation.belongsTo(Conversation);
 Message.hasMany(Recipient);
 Recipient.belongsTo(Message);
 
